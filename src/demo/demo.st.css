@@ -1,0 +1,255 @@
+@st-import [colors, gradients, noise, noise-filter, shadow, inner-shadow] from '../open-props-interface.st.css';
+
+.root {
+    height: 100vh;
+    padding: 1em;
+    background: var(--gray-1);
+
+    padding-bottom: 10em;
+}
+.root:first-child {
+    margin-top:0;
+}
+
+.section {
+    -st-states: layout(enum(line, grid));
+}
+.section header {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background: white;
+    border-bottom: 1px solid black;
+}
+.section:layout(line) .content {
+    display: flex;
+    gap: 0.5em;
+}
+.section:layout(line) .sample {
+    flex: 1;
+    outline: 1px solid black;
+    aspect-ratio: 1/1;
+}
+
+.section:layout(grid) {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.5em;
+}
+.section:layout(grid) .sample {
+    aspect-ratio: 1/1;
+    min-width: 100px;
+}
+
+.sample {
+    position: relative;
+}
+.sample[data-label]:hover::after {
+    content: attr(data-label);
+    position: absolute;
+    background: rgba(0,0,0,0.4);
+    color: white;
+    width: 100%;
+    top: 0%;    
+    text-align: center;
+}
+
+/* colors */
+
+.gray0 { background: value(colors, gray, 0) }
+.gray1 { background: value(colors, gray, 1) }
+.gray2 { background: value(colors, gray, 2) }
+.gray3 { background: value(colors, gray, 3) }
+.gray4 { background: value(colors, gray, 4) }
+.gray5 { background: value(colors, gray, 5) }
+.gray6 { background: value(colors, gray, 6) }
+.gray7 { background: value(colors, gray, 7) }
+.gray8 { background: value(colors, gray, 8) }
+.gray9 { background: value(colors, gray, 9) }
+
+.red0 { background: value(colors, red, 0) }
+.red1 { background: value(colors, red, 1) }
+.red2 { background: value(colors, red, 2) }
+.red3 { background: value(colors, red, 3) }
+.red4 { background: value(colors, red, 4) }
+.red5 { background: value(colors, red, 5) }
+.red6 { background: value(colors, red, 6) }
+.red7 { background: value(colors, red, 7) }
+.red8 { background: value(colors, red, 8) }
+.red9 { background: value(colors, red, 9) }
+
+.pink0 { background: value(colors, pink, 0) }
+.pink1 { background: value(colors, pink, 1) }
+.pink2 { background: value(colors, pink, 2) }
+.pink3 { background: value(colors, pink, 3) }
+.pink4 { background: value(colors, pink, 4) }
+.pink5 { background: value(colors, pink, 5) }
+.pink6 { background: value(colors, pink, 6) }
+.pink7 { background: value(colors, pink, 7) }
+.pink8 { background: value(colors, pink, 8) }
+.pink9 { background: value(colors, pink, 9) }
+
+.grape0 { background: value(colors, grape, 0) }
+.grape1 { background: value(colors, grape, 1) }
+.grape2 { background: value(colors, grape, 2) }
+.grape3 { background: value(colors, grape, 3) }
+.grape4 { background: value(colors, grape, 4) }
+.grape5 { background: value(colors, grape, 5) }
+.grape6 { background: value(colors, grape, 6) }
+.grape7 { background: value(colors, grape, 7) }
+.grape8 { background: value(colors, grape, 8) }
+.grape9 { background: value(colors, grape, 9) }
+
+.violet0 { background: value(colors, violet, 0) }
+.violet1 { background: value(colors, violet, 1) }
+.violet2 { background: value(colors, violet, 2) }
+.violet3 { background: value(colors, violet, 3) }
+.violet4 { background: value(colors, violet, 4) }
+.violet5 { background: value(colors, violet, 5) }
+.violet6 { background: value(colors, violet, 6) }
+.violet7 { background: value(colors, violet, 7) }
+.violet8 { background: value(colors, violet, 8) }
+.violet9 { background: value(colors, violet, 9) }
+
+.indigo0 { background: value(colors, indigo, 0) }
+.indigo1 { background: value(colors, indigo, 1) }
+.indigo2 { background: value(colors, indigo, 2) }
+.indigo3 { background: value(colors, indigo, 3) }
+.indigo4 { background: value(colors, indigo, 4) }
+.indigo5 { background: value(colors, indigo, 5) }
+.indigo6 { background: value(colors, indigo, 6) }
+.indigo7 { background: value(colors, indigo, 7) }
+.indigo8 { background: value(colors, indigo, 8) }
+.indigo9 { background: value(colors, indigo, 9) }
+
+.blue0 { background: value(colors, blue, 0) }
+.blue1 { background: value(colors, blue, 1) }
+.blue2 { background: value(colors, blue, 2) }
+.blue3 { background: value(colors, blue, 3) }
+.blue4 { background: value(colors, blue, 4) }
+.blue5 { background: value(colors, blue, 5) }
+.blue6 { background: value(colors, blue, 6) }
+.blue7 { background: value(colors, blue, 7) }
+.blue8 { background: value(colors, blue, 8) }
+.blue9 { background: value(colors, blue, 9) }
+
+.cyan0 { background: value(colors, cyan, 0) }
+.cyan1 { background: value(colors, cyan, 1) }
+.cyan2 { background: value(colors, cyan, 2) }
+.cyan3 { background: value(colors, cyan, 3) }
+.cyan4 { background: value(colors, cyan, 4) }
+.cyan5 { background: value(colors, cyan, 5) }
+.cyan6 { background: value(colors, cyan, 6) }
+.cyan7 { background: value(colors, cyan, 7) }
+.cyan8 { background: value(colors, cyan, 8) }
+.cyan9 { background: value(colors, cyan, 9) }
+
+.teal0 { background: value(colors, teal, 0) }
+.teal1 { background: value(colors, teal, 1) }
+.teal2 { background: value(colors, teal, 2) }
+.teal3 { background: value(colors, teal, 3) }
+.teal4 { background: value(colors, teal, 4) }
+.teal5 { background: value(colors, teal, 5) }
+.teal6 { background: value(colors, teal, 6) }
+.teal7 { background: value(colors, teal, 7) }
+.teal8 { background: value(colors, teal, 8) }
+.teal9 { background: value(colors, teal, 9) }
+
+.green0 { background: value(colors, green, 0) }
+.green1 { background: value(colors, green, 1) }
+.green2 { background: value(colors, green, 2) }
+.green3 { background: value(colors, green, 3) }
+.green4 { background: value(colors, green, 4) }
+.green5 { background: value(colors, green, 5) }
+.green6 { background: value(colors, green, 6) }
+.green7 { background: value(colors, green, 7) }
+.green8 { background: value(colors, green, 8) }
+.green9 { background: value(colors, green, 9) }
+
+.lime0 { background: value(colors, lime, 0) }
+.lime1 { background: value(colors, lime, 1) }
+.lime2 { background: value(colors, lime, 2) }
+.lime3 { background: value(colors, lime, 3) }
+.lime4 { background: value(colors, lime, 4) }
+.lime5 { background: value(colors, lime, 5) }
+.lime6 { background: value(colors, lime, 6) }
+.lime7 { background: value(colors, lime, 7) }
+.lime8 { background: value(colors, lime, 8) }
+.lime9 { background: value(colors, lime, 9) }
+
+.yellow0 { background: value(colors, yellow, 0) }
+.yellow1 { background: value(colors, yellow, 1) }
+.yellow2 { background: value(colors, yellow, 2) }
+.yellow3 { background: value(colors, yellow, 3) }
+.yellow4 { background: value(colors, yellow, 4) }
+.yellow5 { background: value(colors, yellow, 5) }
+.yellow6 { background: value(colors, yellow, 6) }
+.yellow7 { background: value(colors, yellow, 7) }
+.yellow8 { background: value(colors, yellow, 8) }
+.yellow9 { background: value(colors, yellow, 9) }
+
+.orange0 { background: value(colors, orange, 0) }
+.orange1 { background: value(colors, orange, 1) }
+.orange2 { background: value(colors, orange, 2) }
+.orange3 { background: value(colors, orange, 3) }
+.orange4 { background: value(colors, orange, 4) }
+.orange5 { background: value(colors, orange, 5) }
+.orange6 { background: value(colors, orange, 6) }
+.orange7 { background: value(colors, orange, 7) }
+.orange8 { background: value(colors, orange, 8) }
+.orange9 { background: value(colors, orange, 9) }
+
+/* gradients */
+
+.gradientsWrapper {
+    --noise: none;
+    --filter: none;
+}
+.gradientsWrapper .sample {
+    /* fit noise image to element */
+    background-size: cover;
+}
+.gradient1  { background-image: value(gradients, 0), var(--noise); filter: var(--filter); }
+.gradient2  { background-image: value(gradients, 1), var(--noise); filter: var(--filter); }
+.gradient3  { background-image: value(gradients, 2), var(--noise); filter: var(--filter); }
+.gradient4  { background-image: value(gradients, 3), var(--noise); filter: var(--filter); }
+.gradient5  { background-image: value(gradients, 4), var(--noise); filter: var(--filter); }
+.gradient6  { background-image: value(gradients, 5), var(--noise); filter: var(--filter); }
+.gradient7  { background-image: value(gradients, 6), var(--noise); filter: var(--filter); }
+.gradient8  { background-image: value(gradients, 7), var(--noise); filter: var(--filter); }
+.gradient9  { background-image: value(gradients, 8), var(--noise); filter: var(--filter); }
+.gradient10 { background-image: value(gradients, 9), var(--noise); filter: var(--filter); }
+.gradient11 { background-image: value(gradients, 10), var(--noise); filter: var(--filter); }
+.gradient12 { background-image: value(gradients, 11), var(--noise); filter: var(--filter); }
+.gradient13 { background-image: value(gradients, 12), var(--noise); filter: var(--filter); }
+.gradient14 { background-image: value(gradients, 13), var(--noise); filter: var(--filter); }
+.gradient15 { background-image: value(gradients, 14), var(--noise); filter: var(--filter); }
+.gradient16 { background-image: value(gradients, 15), var(--noise); filter: var(--filter); }
+.gradient17 { background-image: value(gradients, 16), var(--noise); filter: var(--filter); }
+.gradient18 { background-image: value(gradients, 17), var(--noise); filter: var(--filter); }
+.gradient19 { background-image: value(gradients, 18), var(--noise); filter: var(--filter); }
+.gradient20 { background-image: value(gradients, 19), var(--noise); filter: var(--filter); }
+.gradient21 { background-image: value(gradients, 20), var(--noise); filter: var(--filter); }
+.gradient22 { background-image: value(gradients, 21), var(--noise); filter: var(--filter); }
+.gradient23 { background-image: value(gradients, 22), var(--noise); filter: var(--filter); }
+.gradient24 { background-image: value(gradients, 23), var(--noise); filter: var(--filter); }
+.gradient25 { background-image: value(gradients, 24), var(--noise); filter: var(--filter); }
+.gradient26 { background-image: value(gradients, 25), var(--noise); filter: var(--filter); }
+.gradient27 { background-image: value(gradients, 26), var(--noise); filter: var(--filter); }
+.gradient28 { background-image: value(gradients, 27), var(--noise); filter: var(--filter); }
+.gradient29 { background-image: value(gradients, 28), var(--noise); filter: var(--filter); }
+.gradient30 { background-image: value(gradients, 29), var(--noise); filter: var(--filter); }
+
+/* shadows */
+
+.shadow1 { box-shadow: value(shadow, 0); }
+.shadow2 { box-shadow: value(shadow, 1); }
+.shadow3 { box-shadow: value(shadow, 2); }
+.shadow4 { box-shadow: value(shadow, 3); }
+.shadow5 { box-shadow: value(shadow, 4); }
+.shadow6 { box-shadow: value(shadow, 5); }
+.innerShadow1 { box-shadow: value(inner-shadow, 0); }
+.innerShadow2 { box-shadow: value(inner-shadow, 1); }
+.innerShadow3 { box-shadow: value(inner-shadow, 2); }
+.innerShadow4 { box-shadow: value(inner-shadow, 3); }
+.innerShadow5 { box-shadow: value(inner-shadow, 4); }
